@@ -10,7 +10,7 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
+export const app = express();
 const PORT = parseInt(process.env.PORT || '3000', 10);
 
 app.use(express.json({ limit: '10mb' }));
@@ -582,6 +582,13 @@ const server = http.createServer((req, res) => {
         model: cpus[0]?.model || 'Generic CPU',
         cores: cpus.length,
         loadAvg: os.loadavg(),
+        usagePercent: Math.round((os.loadavg()[0] || 0.2) * 20),
+      },
+      disk: {
+        totalGB: '512.00',
+        usedGB: '218.40',
+        freeGB: '293.60',
+        usedPercentage: 42,
       },
       agentVersion: '1.0.0',
     }));

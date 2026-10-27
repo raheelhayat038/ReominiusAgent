@@ -111,6 +111,12 @@ export interface MachineTelemetry {
     cores: number;
     usagePercent: number;
   };
+  disk?: {
+    totalGB: string;
+    usedGB: string;
+    freeGB: string;
+    usedPercentage: number;
+  };
 }
 
 export interface TerminalEntry {

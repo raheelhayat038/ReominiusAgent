@@ -590,6 +590,7 @@ export default function App() {
               setActiveView={setActiveView}
               taskCount={{ pending: pendingTasksCount, total: tasks.length }}
               agentOnline={agentOnline}
+              onToggleDaemonOnline={() => setAgentOnline(!agentOnline)}
               onDownloadDaemon={handleDownloadDaemon}
             />
           </div>
@@ -650,11 +651,19 @@ export default function App() {
             </button>
             <button
               onClick={() => { sound.playClick(); setActiveView('machine'); }}
-              className={`flex flex-col items-center gap-0.5 text-[10px] ${
+              className={`relative flex flex-col items-center gap-0.5 text-[10px] ${
                 activeView === 'machine' ? 'text-indigo-400 font-semibold' : 'text-slate-500'
               }`}
             >
-              <Terminal className="w-4 h-4" />
+              <div className="relative">
+                <Terminal className="w-4 h-4" />
+                {agentOnline && (
+                  <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-80 duration-1000" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 animate-heartbeat" />
+                  </span>
+                )}
+              </div>
               <span>Terminal</span>
             </button>
           </nav>

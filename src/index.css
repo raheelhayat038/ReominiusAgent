@@ -10,6 +10,20 @@
   }
 }
 
+/* Heartbeat pulse animation for daemon status */
+@keyframes heartbeat {
+  0% { transform: scale(1); opacity: 1; }
+  14% { transform: scale(1.35); opacity: 0.9; }
+  28% { transform: scale(1); opacity: 1; }
+  42% { transform: scale(1.4); opacity: 0.85; }
+  70% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.4s ease-in-out infinite;
+}
+
 /* Custom scrollbars for desktop & sleek UI */
 ::-webkit-scrollbar {
   width: 6px;

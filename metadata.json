@@ -1,0 +1,7 @@
+{
+  "name": "OmniAssist OS - Windows & Android AI Assistant",
+  "description": "Cross-platform assistant for daily life, task scheduling, developer workflows with GitHub, Supabase & Vercel, ERP generator, and local agent runner.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
